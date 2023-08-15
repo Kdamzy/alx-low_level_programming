@@ -1,4 +1,4 @@
-#include "main.h"
+#include <unistd.h>
 /**
  * main - prints "_putchar" followed by a newline.
  *
@@ -7,7 +7,7 @@
 int main(void)
 {
 	print_putchar();
-	putchar('\n');
+	_putchar('\n');
 
 	return (0);
 }
