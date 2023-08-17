@@ -2,9 +2,11 @@
 
 /**
  * print_diagonal - Prints a diagonal line of backslashes with indentation
- * @n: The number of times the character '\\' should be printed
+ * @n: input variables
+ *
  * Return: void
  */
+
 void print_diagonal(int n)
 {
 	int i, j;
@@ -13,7 +15,7 @@ void print_diagonal(int n)
 		_putchar('\n');
 	for (i = 0; i < n; i++)
 	{
-		for (j = 0; j < row; j++)
+		for (j = 0; j < i; j++)
 		{
 			_putchar(' ');
 		}
