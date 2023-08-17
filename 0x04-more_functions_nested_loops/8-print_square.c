@@ -4,17 +4,16 @@
  * print_square - Prints a square made of '#' characters
  * @size: The size of the square
  */
+
 void print_square(int size)
 {
-	if (size <= 0)
-	{
-		_putchar('\n');
-		return;
-	}
+	int a, b;
 
-	for (int row = 0; row < size; row++)
+	if (size <= 0)
+		_putchar('\n');
+	for (a = 0; a < size; a++)
 	{
-		for (int col = 0; col < size; col++)
+		for (b = 0; b < size; b++)
 		{
 			_putchar('#');
 		}
