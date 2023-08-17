@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_diagonal - Prints a diagonal line of backslashes
+ * print_diagonal - Prints a diagonal line of backslashes with indentation
  * @n: The number of times the character '\\' should be printed
  */
 void print_diagonal(int n)
