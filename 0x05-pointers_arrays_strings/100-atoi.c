@@ -9,26 +9,34 @@
 
 int _atoi(char *s)
 {
-	int sign = 1;  /* Initialize sign as positive */
-	int result = 0;
-	int a = 0;
+        int sign = 1;  /* Initialize sign as positive */
+        int result = 0;
+        int a = 0;
+/* Handle signs */
+        if (s[a] == '-')
+        {
+                sign = -1;
+                a++;
+        }
+        else if (s[a] == '+')
+        {
+                a++;
+        }
 
-	/* Handle signs */
-	while (s[a] == '-' || s[i] == '+')
-	{
-		if (s[a] == '-')
-		{
-			sign *= -1;
+        /* Convert the string to an integer */
+        while (s[a] != '\0')
+        {
+                if (s[a] >= '0' && s[a] <= '9')
+                {
+                        result = result * 10 + (s[a] - '0');
 		}
-		a++;
-	}
+                else
+                {
+                        /* Break if a non-digit character is encountered */
+                        break;
+                }
+                a++;
+        }
 
-	/* Convert the string to an integer */
-	while (s[a] >= '0' && s[a] <= '9')
-	{
-		result = result * 10 + (s[a] - '0');
-		a++;
-	}
-
-	return (result * sign);
+        return (result * sign);
 }
