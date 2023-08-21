@@ -39,10 +39,10 @@ void puts_half(char *str)
 		half_length = (length - 1) / 2;
 	}
 
-	while (str[length] != '\0')
+	while (str[half_length] != '\0')
 	{
-		_putchar(str[length]);
-		length++;
+		_putchar(str[half_length]);
+		half_length++;
 	}
 
 	_putchar('\n');
