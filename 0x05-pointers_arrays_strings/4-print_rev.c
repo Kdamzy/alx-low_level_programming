@@ -10,12 +10,12 @@ void print_rev(char *s)
 
 	int a
 
-		while (s[kenny])
-		{
-			kenny++;
-		}
+	while (s[kenny])
+	{
+		kenny++;
+	}
 
-	for (a = kenny - 1; i >= 0; a--)
+	for (a = kenny - 1; a >= 0; a--)
 	{
 		_putchar(s[a]);
 	}
