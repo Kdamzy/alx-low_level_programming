@@ -14,28 +14,19 @@ int _atoi(char *s)
 	int a = 0;
 
 	/* Handle signs */
-	if (s[a] == '-')
+	while (s[a] == '-' || s[i] == '+')
 	{
-		sign = -1;
-		a++;
-	}
-	else if (s[a] == '+')
-	{
+		if (s[a] == '-')
+		{
+			sign *= -1;
+		}
 		a++;
 	}
 
 	/* Convert the string to an integer */
-	while (s[a] != '\0')
+	while (s[a] >= '0' && s[a] <= '9')
 	{
-		if (s[a] >= '0' && s[a] <= '9')
-		{
-			result = result * 10 + (s[a] - '0');
-		}
-		else
-		{
-			/* Break if a non-digit character is encountered */
-			break;
-		}
+		result = result * 10 + (s[a] - '0');
 		a++;
 	}
 
