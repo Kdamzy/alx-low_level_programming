@@ -9,9 +9,9 @@ void print_rev(char *s)
 {
 	int kenny = 0;
 
-	int a
+	int a;
 
-	while (s[kenny])
+	while (s[kenny] != '\0')
 	{
 		kenny++;
 	}
