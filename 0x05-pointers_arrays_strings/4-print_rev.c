@@ -4,6 +4,7 @@
  * print_rev - Print a string in reverse followed by a new line.
  * @s: Pointer to the string to be printed in reverse.
  */
+
 void print_rev(char *s)
 {
 	int kenny = 0;
