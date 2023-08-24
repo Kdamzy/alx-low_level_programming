@@ -47,7 +47,5 @@ char *cap_string(char *str)
 			}
 		}
 	}
-
-	/* Return the modified string */
 	return (str);
 }
