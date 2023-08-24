@@ -16,17 +16,14 @@ char *rot13(char *str)
 	/* Loop through the characters of the input string */
 	for (a = 0; str[a]; a++)
 	{
-		/* Check if the current character is an alphabet letter */
-		if ((str[a] >= 'a' && str[a] <= 'z') || (str[a] >= 'A' && str[a] <= 'Z'))
+		/* Loop through the normal and rot13 arrays to find the match */
+		for (b = 0; c[b]; b++)
 		{
-			/* Loop through the normal and rot13 arrays to find the match */
-			for (b = 0; c[b]; b++)
+			/* Check if the current character matches */
+			if (str[a] == c[b])
 			{
-				if (str[a] == c[b])
-				{
-					str[a] = d[b];
-					break;
-				}
+				str[a] = d[b];
+				break;
 			}
 		}
 	}
