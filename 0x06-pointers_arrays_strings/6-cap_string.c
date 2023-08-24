@@ -37,7 +37,6 @@ char *cap_string(char *str)
 		}
 		else
 		{
-			/* Move to the next character */
 			i++;
 
 			/* If the next character is uppercase, convert it to lowercase */
@@ -47,5 +46,6 @@ char *cap_string(char *str)
 			}
 		}
 	}
+
 	return (str);
 }
