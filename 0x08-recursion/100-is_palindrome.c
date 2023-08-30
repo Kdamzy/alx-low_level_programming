@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * is_palindrome - Checks if a string is a palindrome
  * @s: Pointer to the string to be checked
@@ -10,42 +9,36 @@ int is_palindrome(char *s)
 {
 	int length = _strlen(s);
 
-	return (palindrome_helper(s, 0, a - 1));
+	return (palindrome_helper(s, length));
 }
 
 /**
  * _strlen - Returns the length of a string
  * @s: Pointer to the string
  *
- * Return: length of the string
+ * Return: Length of the string
  */
 int _strlen(char *s)
 {
-	int length = 0;
-
-	while (*s != '\0')
-	{
-		length++;
-		s++;
-
-		return (length);
+	if (*s == '\0')
+		return (0);
+	return (1 + _strlen(s + 1));
 }
 
 /**
  * palindrome_helper - Recursive helper function to check palindromicity
  * @s: Pointer to the string to be checked
- * @c: The starting index of the substring to check
- * @d: The ending index of the substring to check
+ * @length: The current length of the string
  *
  * Return: 1 if s is a palindrome, 0 otherwise
  */
-int palindrome_helper(char *s, int c, int d)
+int palindrome_helper(char *s, int length)
 {
-	if (c >= d)
+	if (length <= 1)
 		return (1);
 
-	if (s[c] != s[d])
+	if (*s != s[length - 1])
 		return (0);
 
-	return (palindrome_helper(s, c + 1, d - 1));
+	return (palindrome_helper(s + 1, length - 2));
 }
