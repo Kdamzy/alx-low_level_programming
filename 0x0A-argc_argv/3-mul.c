@@ -40,6 +40,7 @@ int _atoi(char *s)
 		}
 		i++;
 	}
+
 	if (f == 0)
 		return (0);
 
@@ -73,4 +74,4 @@ int main(int argc, char *argv[])
 	printf("%d\n", result);
 
 	return (0);
-}
+}i
