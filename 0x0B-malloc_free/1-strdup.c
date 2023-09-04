@@ -1,6 +1,6 @@
 #include <stdlib.h>
-#include "main.h"
 #include <stdio.h>
+#include "main.h"
 
 /**
  * _strdup - Duplicates a string.
@@ -11,8 +11,7 @@
  */
 char *_strdup(char *str)
 {
-	int a = 0;
-	int b;
+	int a, b = 0;
 	char *ptr;
 
 	if (str == NULL)
@@ -27,7 +26,7 @@ char *_strdup(char *str)
 		return (NULL);
 
 	for (b = 0; str[b]; b++)
-		ptr[b} = str[b];
+		ptr[b] = str[b];
 
 	return (ptr);
 }
