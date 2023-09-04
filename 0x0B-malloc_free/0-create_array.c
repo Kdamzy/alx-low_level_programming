@@ -15,17 +15,13 @@ char *create_array(unsigned int size, char c);
 	unsigned int a;
 	char *psr;
 
-	psr = (char *)malloc(size * size of(char));
-	if (size == 0)
+	psr = malloc(size * size of(char));
+	if (size == 0 || psr == NULL)
 	{
 		return (NULL);
 	}
 
-	if (charArray == NULL)
-	{
-		return (NULL);
-	}
-	for (a = 0, a < size, a++)
+	for (a = 0; a < size; a++)
 	{
 		psr[a] = c;
 	}
