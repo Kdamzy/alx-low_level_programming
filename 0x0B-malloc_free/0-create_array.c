@@ -10,7 +10,7 @@
  * Return: A pointer to the initialized array,
  * or NULL if allocation fails or size is 0.
  */
-char *create_array(unsigned int size, char c);
+char *create_array(unsigned int size, char c)
 {
 	unsigned int a;
 	char *psr;
