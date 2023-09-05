@@ -29,15 +29,15 @@ char *argstostr(int ac, char **av)
 		return (NULL);
 	for (a = 0; a < ac; a++)
 	{
-		for (b = 0; av[a][b]; b++)
-		{
-			ptr[d] = av[a][b];
-			d++;
-		}
+	for (b = 0; av[a][b]; b++)
+	{
+		ptr[d] = av[a][b];
+		d++;
 	}
 	if (ptr[d] == '\0')
 	{
 		ptr[d++] = '\n';
+	}
 	}
 	return (ptr);
 }
