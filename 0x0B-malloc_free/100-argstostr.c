@@ -12,7 +12,7 @@
 char *argstostr(int ac, char **av)
 {
 	char *ptr;
-	int a, b, c, d = 0;
+	int a, b, c = 0, d = 0;
 
 	if (av == NULL || ac == 0)
 		return (NULL);
@@ -20,7 +20,7 @@ char *argstostr(int ac, char **av)
 	for (a = 0; a < ac; a++)
 	{
 		for (b = 0; av[a][b]; b++)
-			a++;
+			c++;
 	}
 	c += ac;
 
