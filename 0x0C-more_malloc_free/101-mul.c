@@ -1,96 +1,101 @@
-#include <stdio.h>
+#include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
+
+#define ERR_MSG "Error"
 
 /**
- * is_digit - Checks if a string consists of only digits
- * @str: The input string
+ * is_digit - checks if a string contains a non-digit char
+ * @s: string to be evaluated
  *
- * Return: 1 if all characters are digits, 0 otherwise
+ * Return: 0 if a non-digit is found, 1 otherwise
  */
-int is_digit(char *str)
+int is_digit(char *s)
 {
-	while (*str)
+	int i = 0;
+
+	while (s[i])
 	{
-		if (*str < '0' || *str > '9')
+		if (s[i] < '0' || s[i] > '9')
 			return (0);
-		str++;
+		i++;
 	}
 	return (1);
 }
 
 /**
- * multiply - Multiplies two positive numbers
- * @num1: The first number
- * @num2: The second number
+ * _strlen - returns the length of a string
+ * @s: string to evaluate
  *
- * Return: The result of the multiplication
+ * Return: the length of the string
  */
-int multiply(char *num1, char *num2)
+int _strlen(char *s)
 {
-	int result = 0;
+	int i = 0;
 
-	while (*num1)
+	while (s[i] != '\0')
 	{
-		int digit1 = *num1 - '0';
-		int carry = 0;
-		char *temp2 = num2;
-		int shift = 0;
-
-		while (*temp2)
-		{
-			int digit2 = *temp2 - '0';
-			int product = (digit1 * digit2) + carry;
-			int current = result;
-
-			while (shift > 0)
-			{
-				product *= 10;
-				shift--;
-			}
-			result = current + product;
-			carry = result / 10;
-			result %= 10;
-			temp2++;
-			shift++;
-		}
-		while (carry > 0)
-		{
-			int current = result;
-
-			result = current + carry;
-			carry = result / 10;
-			result %= 10;
-		}
-		num1++;
+		i++;
 	}
-
-	return (result);
+	return (i);
 }
 
 /**
- * main - Entry point of the program for multiplying two positive numbers
- * @argc: The number of command-line arguments, including the program name
- * @argv: An array of strings containing the command-line arguments
+ * errors - handles errors for main
+ */
+void errors(void)
+{
+	printf("Error\n");
+	exit(98);
+}
+
+/**
+ * main - multiplies two positive numbers
+ * @argc: number of arguments
+ * @argv: array of arguments
  *
- * Return: 0 on successful execution, or 98 and an "Error" message on failure
+ * Return: always 0 (Success)
  */
 int main(int argc, char *argv[])
 {
-	if (argc != 3)
-	{
-		printf("Error\n");
-		return (98);
-	}
-	char *num1 = argv[1];
-	char *num2 = argv[2];
+	char *s1, *s2;
+	int len1, len2, len, i, carry, digit1, digit2, *result, a = 0;
 
-	if (!is_digit(num1) || !is_digit(num2))
+	s1 = argv[1], s2 = argv[2];
+	if (argc != 3 || !is_digit(s1) || !is_digit(s2))
+		errors();
+	len1 = _strlen(s1);
+	len2 = _strlen(s2);
+	len = len1 + len2 + 1;
+	result = malloc(sizeof(int) * len);
+	if (!result)
+		return (1);
+	for (i = 0; i <= len1 + len2; i++)
+		result[i] = 0;
+	for (len1 = len1 - 1; len1 >= 0; len1--)
 	{
-		printf("Error\n");
-		return (98);
+		digit1 = s1[len1] - '0';
+		carry = 0;
+		for (len2 = _strlen(s2) - 1; len2 >= 0; len2--)
+		{
+			digit2 = s2[len2] - '0';
+			carry += result[len1 + len2 + 1] + (digit1 * digit2);
+			result[len1 + len2 + 1] = carry % 10;
+			carry /= 10;
+		}
+		if (carry > 0)
+			result[len1 + len2 + 1] += carry;
 	}
-	int result = multiply(num1, num2);
-
-	printf("%d\n", result);
+	for (i = 0; i < len - 1; i++)
+	{
+		if (result[i])
+			a = 1;
+		if (a)
+			_putchar(result[i] + '0');
+	}
+	if (!a)
+		_putchar('0');
+	_putchar('\n');
+	free(result);
 	return (0);
 }
