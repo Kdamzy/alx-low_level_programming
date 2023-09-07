@@ -47,7 +47,6 @@ int multiply(char *num1, char *num2)
 				product *= 10;
 				shift--;
 			}
-
 			result = current + product;
 			carry = result / 10;
 			result %= 10;
@@ -62,13 +61,19 @@ int multiply(char *num1, char *num2)
 			carry = result / 10;
 			result %= 10;
 		}
-
 		num1++;
 	}
 
 	return (result);
 }
 
+/**
+ * main - Entry point of the program for multiplying two positive numbers
+ * @argc: The number of command-line arguments, including the program name
+ * @argv: An array of strings containing the command-line arguments
+ *
+ * Return: 0 on successful execution, or 98 and an "Error" message on failure
+ */
 int main(int argc, char *argv[])
 {
 	if (argc != 3)
@@ -84,10 +89,8 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		return (98);
 	}
-
 	int result = multiply(num1, num2);
 
 	printf("%d\n", result);
-
 	return (0);
 }
