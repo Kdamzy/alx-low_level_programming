@@ -2,11 +2,11 @@
 
 /**
   * linear_search - Searches for a value in an array
-  * @array: A pointer to the first element of the array
+  * @array: A pointer to the first element of the array to search.
   * @size: The number of elements in the array.
-  * @value: The value to search for.
+  * @value: The value to search for
   *
-  * Return: first index if value is located or NULL if otherwise
+  * Return: If the value is not present or the array is NULL -1.
   */
 int linear_search(int *array, size_t size, int value)
 {
@@ -18,7 +18,7 @@ int linear_search(int *array, size_t size, int value)
 	for (i = 0; i < size; i++)
 	{
 		printf("Value checked array[%ld] = [%d]\n", i, array[i]);
-		if (value == array[i])
+		if (array[i] == value)
 			return (i);
 	}
 
